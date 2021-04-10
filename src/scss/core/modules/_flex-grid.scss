@@ -1,0 +1,54 @@
+// Super Minified Bootstrap Grid Mixins
+
+@mixin make-row() {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@mixin make-col-ready() {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+@mixin make-col($size, $columns: $grid-columns) {
+  flex: 0 0 auto;
+  width: percentage($size / $columns);
+}
+
+@mixin make-col-offset($size, $columns: $grid-columns) {
+  $num: $size / $columns;
+  margin-left: if($num == 0, 0, percentage($num));
+}
+
+@mixin row-cols($count) {
+  & > * {
+    flex: 0 0 auto;
+    width: 100% / $count;
+  }
+}
+
+@mixin make-grid-columns($columns: $grid-columns, $breakpoints-grid: $breakpoints) {
+  @each $bp, $bp-size in $breakpoints-grid {
+    $infix: breakpoint-infix($bp); 
+
+    @if $columns > 0 {
+      @include bp-min-width($bp-size) {
+        @for $i from 1 through $columns {
+          .col#{$infix}-#{$i} {
+            @include make-col($i, $columns);
+          }
+        }
+
+        @for $i from 0 through ($columns - 1) {
+          @if not ($i == 0) {
+            .offset#{$infix}-#{$i} {
+              @include make-col-offset($i, $columns);
+            }
+          }
+        }
+      }
+    }
+
+  }
+}

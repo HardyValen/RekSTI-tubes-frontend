@@ -1,0 +1,13 @@
+@each $key, $value in $breakpoints {
+  .bp-hide-max-#{$key} {
+    @include bp-max-width($value) {
+      display: none !important;
+    }
+  }
+
+  .bp-hide-min-#{$key} {
+    @include bp-min-width($value) {
+      display: none !important;
+    } 
+  }
+}

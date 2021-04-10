@@ -1,0 +1,11 @@
+@mixin box-shadow($key: "default", $allowOnSmall: "true") {
+  box-shadow: nth(map-get($box-shadow, $key), 2);
+
+  @if $allowOnSmall == "true" {
+    @include bp-max-width($bp-medium) {
+      box-shadow: nth(map-get($box-shadow, $key), 1);
+    }
+  } @else {
+    box-shadow: none;
+  }
+}

@@ -1,0 +1,16 @@
+@each $key, $value in $bs {
+  .p-#{$key}  {@include fluidpadding(nth($value, 1), nth($value, 2));}
+  .m-#{$key}  {@include fluidmargin(nth($value, 1), nth($value, 2));}
+  .px-#{$key} {@include fluidpaddingx(nth($value, 1), nth($value, 2))}
+  .py-#{$key} {@include fluidpaddingy(nth($value, 1), nth($value, 2))}
+  .pt-#{$key} {@include fluid("padding-top", nth($value, 1), nth($value, 2))}
+  .pl-#{$key} {@include fluid("padding-left", nth($value, 1), nth($value, 2))}
+  .pb-#{$key} {@include fluid("padding-bottom", nth($value, 1), nth($value, 2))}
+  .pr-#{$key} {@include fluid("padding-right", nth($value, 1), nth($value, 2))}
+  .mx-#{$key} {@include fluidmarginx(nth($value, 1), nth($value, 2))}
+  .my-#{$key} {@include fluidmarginy(nth($value, 1), nth($value, 2))}
+  .mt-#{$key} {@include fluid("margin-top", nth($value, 1), nth($value, 2))}
+  .ml-#{$key} {@include fluid("margin-left", nth($value, 1), nth($value, 2))}
+  .mb-#{$key} {@include fluid("margin-bottom", nth($value, 1), nth($value, 2))}
+  .mr-#{$key} {@include fluid("margin-right", nth($value, 1), nth($value, 2))}
+}

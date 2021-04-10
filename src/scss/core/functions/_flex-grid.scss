@@ -1,0 +1,12 @@
+// Alias Function
+@function breakpoint-infix($name) {
+  @if $name == small {
+    @return "";
+  } @else if $name == medium {
+    @return "-md";
+  } @else if $name == large {
+    @return "-lg";
+  } @else {
+    @return "";
+  }
+}

@@ -1,0 +1,18 @@
+// Import Base CSS
+@import "./core/base.scss";
+
+
+// Global Classes
+@import "./core/global-classes/fonts-class";
+@import "./core/global-classes/colors-class";
+@import "./core/global-classes/bp-class";
+@import "./core/global-classes/flex-grid";
+@import "./core/global-classes/box-sizing";
+@import "./core/global-classes/box-shadow";
+@import "./core/global-classes/hover";
+@import "./core/global-classes/layout";
+@import "./core/global-classes/separator";
+@import "./core/global-classes/button";
+
+// Custom SCSS
+@import "./custom/custom.scss";

@@ -1,0 +1,19 @@
+@each $key, $value in $box-shadow {
+  @if $key == "default" {
+    .box-shadow {
+      @include box-shadow();
+    }
+
+    .box-shadow-md {
+      @include box-shadow($key, "false");
+    }
+  } @else {
+    .box-shadow-#{$key} {
+      @include box-shadow();
+    }
+
+    .box-shadow-#{$key}-md {
+      @include box-shadow($key, "false");
+    }
+  }
+}

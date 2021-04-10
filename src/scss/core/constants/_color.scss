@@ -1,0 +1,21 @@
+// // Constant: Colors
+$color: (
+  "primary": #163C80,
+  "primary-2": adjust-color(#163C80, $lightness: 10%),
+  "primary-light": adjust-color(#163C80, $lightness: 30%),
+  "primary-lighter": #F1F5F6,
+  "primary-gray-1": #1F2D3D,
+  "black": #000000,
+  "white": #ffffff,
+  "gray-1": #333333,
+  "gray-2": #4F4F4F,
+  "gray-3": #828282,
+  "gray-4": #BDBDBD,
+  "gray-5": #F2F2F2,
+);
+
+$color-border-default: map-get($color, "gray-4");
+$color-text-base-default: map-get($color, "gray-4");
+$color-title-default: map-get($color, "white");
+$color-header-default: $color-title-default;
+$color-background-default: map-get($color, "white");

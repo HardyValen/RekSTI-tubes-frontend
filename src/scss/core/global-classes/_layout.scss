@@ -1,0 +1,20 @@
+.site-layout {
+  @include fluid("padding-top", 8rem, 10rem);
+  max-width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  color: map-get($color, "white");
+}
+
+.medium-only {
+  @include bp-max-width($bp-medium) {
+    display: none;
+  }
+}
+
+.large-only {
+  @include bp-max-width($bp-large) {
+    display: none;
+  }
+}

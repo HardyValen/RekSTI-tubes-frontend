@@ -1,0 +1,15 @@
+.custom-modal-overlay {
+  opacity: 0;
+  transition: $defaultTransition;
+  z-index: 4000;
+  background-color: rgba(0, 0, 0, 0.75);
+  transition: 'all 0.2 ease-in-out'
+}
+
+.custom-modal-overlay--after-open {
+  opacity: 1;
+}
+
+.custom-modal-overlay--before-close {
+  opacity: 0;
+}

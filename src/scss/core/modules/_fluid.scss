@@ -1,0 +1,72 @@
+// Uses constants/breakpoints, function/unit-utilities
+
+// @param:
+//      $property: {type: string}
+//      $floor: {type: number; unit: must same with ceil}
+//      $ceil: {type: number; unit: must same with floor}
+// @return: vw and rem
+// Use Case: fluid("font-size", 1.2rem, 1.4rem)
+
+@mixin fluid($property, $floor, $ceiling: $floor) {
+  // @if type-of($property) != "string" {
+  //   @error "Sorry, you must insert string for $property on fluid mixin";
+  // }
+
+  // @if unit($floor) != unit($ceiling) {
+  //   @error "Sorry, the $floor and $ceiling unit must match on fluid mixin";
+  // }
+
+  & {
+    #{$property}: $floor;
+
+    @media screen and (min-width: #{remToPx($bp-small)}) {
+      #{$property}: calc(
+        #{$floor} + #{stripUnit($ceiling - $floor)} *
+          (
+            (100vw - #{$bp-small}) /
+              (#{stripUnit($bp-medium) - stripUnit($bp-small)})
+          )
+      );
+    }
+
+    @media screen and (min-width: #{remToPx($bp-medium)}) {
+      #{$property}: $ceiling;
+    }
+
+    @media screen and (min-width: #{remToPx($bp-large)}) {
+      #{$property}: #{stripUnit($ceiling) / stripUnit($bp-large) * 100vw};
+    }
+  }
+}
+
+// Padding Mixins
+@mixin fluidpaddingx($floor, $ceiling: $floor) {
+  @include fluid("padding-left", $floor, $ceiling);
+  @include fluid("padding-right", $floor, $ceiling);
+}
+
+@mixin fluidpaddingy($floor, $ceiling: $floor) {
+  @include fluid("padding-top", $floor, $ceiling);
+  @include fluid("padding-bottom", $floor, $ceiling);
+}
+
+@mixin fluidpadding($floor, $ceiling: $floor) {
+  @include fluidpaddingx($floor, $ceiling);
+  @include fluidpaddingy($floor, $ceiling);
+}
+
+// Margin Mixins
+@mixin fluidmarginx($floor, $ceiling: $floor) {
+  @include fluid("margin-left", $floor, $ceiling);
+  @include fluid("margin-right", $floor, $ceiling);
+}
+
+@mixin fluidmarginy($floor, $ceiling: $floor) {
+  @include fluid("margin-top", $floor, $ceiling);
+  @include fluid("margin-bottom", $floor, $ceiling);
+}
+
+@mixin fluidmargin($floor, $ceiling: $floor) {
+  @include fluidmarginx($floor, $ceiling);
+  @include fluidmarginy($floor, $ceiling);
+}

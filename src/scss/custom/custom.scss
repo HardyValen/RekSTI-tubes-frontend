@@ -1,0 +1,37 @@
+.App {
+  @include fluidpaddingx(2rem);
+  @include fluidpaddingy(4rem, 8rem);
+
+  ul, ol {
+    @include boxsizing-my("3");
+    @include boxsizing-pl("6");
+  }
+
+  .app-weather-card {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    .weather-card-img {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: auto;
+
+      img {
+        @include fluid("height", 8rem);
+      }
+    }
+
+    .weather-card-description {
+      
+      p {
+        color: #666666;
+      }
+
+      h3 {
+        color: #444444;
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+// Mixin Border for easier life
+@mixin border (
+  $type: "border",
+  $radius: 0rem,
+  $width: .1rem,
+  $style: solid, 
+  $color: map-get($color, "black")
+) {
+  $borderType: $type + "-width";
+  
+  #{$type}-style: $style;
+
+  @if (type-of($width)) == list {
+    @include fluid($borderType, nth($width, 1), nth($width, 2));
+  } @else {
+    @include fluid($borderType, $width);
+  }
+
+  @if (type-of($radius)) == list {
+    @include fluid("border-radius", nth($radius, 1), nth($radius, 2));
+  } @else {
+    @include fluid("border-radius", $radius);
+  }
+  
+  #{$type}-color: $color;
+}
+
+@mixin separator(){
+  @include fluid("height", .1rem);
+}

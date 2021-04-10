@@ -1,0 +1,44 @@
+// Uses Fonts Module and Fonts Constant
+// Font Size Classes
+$font-sizes: (
+  "title": $font-size-title,
+  "h1": $font-size-h1,
+  "h2": $font-size-h2,
+  "h3": $font-size-h3,
+  "big": $font-size-big,
+  "base": $font-size-base,
+  "small": $font-size-sm,
+  "annotation": $font-size-annotation
+);
+
+@each $key, $value in $font-sizes {
+  .font.size-#{$key} {
+    @include typography($value);
+  }
+}
+
+// Font Weight Classes
+$font-weights: (
+  "light": $font-light,
+  "regular": $font-regular,
+  "bold": $font-bold
+);
+
+@each $key, $value in $font-weights {
+  .font.weight-#{$key} {
+    font-weight: $value;
+  }
+}
+
+// Font Type Classes
+$font-types: (
+  "base": $font-type-base,
+  "title": $font-type-title,
+  "heading": $font-type-heading,
+);
+
+@each $key, $value in $font-types {
+  .font.type-#{$key} {
+    font-family: $value;
+  }
+}

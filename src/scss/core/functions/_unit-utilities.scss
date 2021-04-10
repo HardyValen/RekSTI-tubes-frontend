@@ -1,0 +1,49 @@
+/*
+ * @param: value {type: number; unit: any}
+ * @return: number
+ */
+
+@function stripUnit($value) {
+  @if type-of($value) != "number" {
+    @error "Sorry, you must insert any number for $value on stripUnit function";
+  }
+  @return $value / ($value * 0 + 1);
+}
+
+// @param: value {type: number; unit: px;}
+// @return: rem
+@function pxToRem($value) {
+  @if unit($value) != "px" {
+    @error "Sorry, you must insert px for $value on pxToRem function";
+  }
+
+  @return (stripUnit($value) / $baseValue) * 1rem;
+}
+
+// @param: value {type: number; unit: rem;}
+// @return: px
+@function remToPx($value) {
+  @if unit($value) != "rem" {
+    @error "Sorry, you must insert rem for $value on pxToRem function";
+  }
+
+  @return (stripUnit($value) * $baseValue) * 1px;
+}
+
+// @param:
+//      viewport {type: number; unit: rem;}
+//      value    {type: number; unit: rem;}
+// @return: vw
+@function remToVw($viewport, $value) {
+  @if unit($viewport) != "rem" {
+    @error "Sorry, you must insert rem value for $viewport on remToVw function";
+  }
+
+  @if unit($value) != "rem" {
+    @error "Sorry, you must insert rem value for $value on remToVw function";
+  }
+
+  $strippedValue: stripUnit($value);
+  $strippedViewport: stripUnit($viewport);
+  @return ($strippedValue / $strippedViewport) * 100vw;
+}

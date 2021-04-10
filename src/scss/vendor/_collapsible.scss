@@ -1,0 +1,16 @@
+.Collapsible {
+  @include box-shadow();
+  @include fluid("border-radius", .5rem);
+  background-color: map-get($color, "primary-lighter");
+  width: 100%;
+
+  .Collapsible__contentOuter {
+    background-color: white;
+  }
+
+  .collapsible-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+}

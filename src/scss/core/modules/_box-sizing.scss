@@ -1,0 +1,45 @@
+// Mixin boxsizing
+@mixin boxsizing($size: $bs-component-default-list) {
+  @include fluidpadding(nth($size, 1), nth($size, 2));
+}
+
+// Mixin boxsizing-x
+@mixin boxsizing-x($size: $bs-component-default-list) {
+  @include fluidpaddingx(nth($size, 1), nth($size, 2));
+}
+
+// Mixin boxsizing-y
+@mixin boxsizing-y($size: $bs-component-default-list) {
+  @include fluidpaddingy(nth($size, 1), nth($size, 2));
+}
+
+// Mixin boxsizing-top
+@mixin boxsizing-top($size: $bs-component-default-list) {
+  @include fluid("padding-top", nth($size, 1), nth($size, 2));
+}
+
+// Mixin boxsizing-right
+@mixin boxsizing-right($size: $bs-component-default-list) {
+  @include fluid("padding-right", nth($size, 1), nth($size, 2));
+}
+
+// Mixin boxsizing-bottom
+@mixin boxsizing-bottom($size: $bs-component-default-list) {
+  @include fluid("padding-bottom", nth($size, 1), nth($size, 2));
+}
+
+// Mixin boxsizing-left
+@mixin boxsizing-left($size: $bs-component-default-list) {
+  @content;
+  @include fluid("padding-left", nth($size, 1), nth($size, 2));
+}
+
+
+// Mixin fo Every Article
+@mixin articlePadding() {
+  @include boxsizing-x(map-get($bs, "8"));
+  @include boxsizing-y(map-get($bs, "8"));
+  @include bp-max-width($bp-medium) {
+    @include boxsizing-x(map-get($bs, "6"));
+  }
+}

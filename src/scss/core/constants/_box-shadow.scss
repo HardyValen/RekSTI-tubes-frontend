@@ -1,0 +1,16 @@
+$box-shadow: (
+  "default": (
+    0 .4rem .4rem 0 rgba(0, 0, 0, .25), 
+    0 #{remToVw($bp-large, .4rem)} #{remToVw($bp-large, .4rem)} 0 rgba(0, 0, 0, .25)
+  ),
+
+  "top": (
+    0 -.4rem .4rem 0 rgba(0, 0, 0, .25), 
+    0 #{remToVw($bp-large, -.4rem)} #{remToVw($bp-large, .4rem)} 0 rgba(0, 0, 0, .25)
+  ),
+
+  "button": (
+    0 .2rem .2rem 0 rgba(0, 0, 0, .20), 
+    0 #{remToVw($bp-large, .2rem)} #{remToVw($bp-large, .2rem)} 0 rgba(0, 0, 0, .20)
+  ),
+)

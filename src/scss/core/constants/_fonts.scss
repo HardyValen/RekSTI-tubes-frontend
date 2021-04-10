@@ -1,0 +1,60 @@
+// Font Size
+$fontsize: (
+  // "title-ceil": 6.4rem,
+  "title-ceil": 5.6rem,
+  "title-floor": 3.6rem,
+  "h1-ceil": 3.2rem,
+  "h1-floor": 2.8rem,
+  "h2-ceil": 2.8rem,
+  "h2-floor": 2.4rem,
+  "h3-ceil": 2.4rem,
+  "h3-floor": 2.0rem,
+  "big-ceil": 1.8rem,
+  "big-floor": 1.6rem,
+  "base-ceil": 1.6rem,
+  "base-floor": 1.4rem,
+  "sm-ceil": 1.4rem,
+  "sm-floor": 1.2rem,
+  "annotation-ceil": 1.2rem,
+  "annotation-floor": 1.05rem,
+);
+
+$font-size-title-ceil: map-get($fontsize, "title-ceil");
+$font-size-title-floor: map-get($fontsize, "title-floor");
+$font-size-h1-ceil: map-get($fontsize, "h1-ceil");
+$font-size-h1-floor: map-get($fontsize, "h1-floor");
+$font-size-h2-ceil: map-get($fontsize, "h2-ceil");
+$font-size-h2-floor: map-get($fontsize, "h2-floor");
+$font-size-h3-ceil: map-get($fontsize, "h3-ceil");
+$font-size-h3-floor: map-get($fontsize, "h3-floor");
+$font-size-big-ceil: map-get($fontsize, "big-ceil");
+$font-size-big-floor: map-get($fontsize, "big-floor");
+$font-size-base-ceil: map-get($fontsize, "base-ceil");
+$font-size-base-floor: map-get($fontsize, "base-floor");
+$font-size-sm-ceil: map-get($fontsize, "sm-ceil");
+$font-size-sm-floor: map-get($fontsize, "sm-floor");
+$font-size-annotation-ceil: map-get($fontsize, "annotation-ceil");
+$font-size-annotation-floor: map-get($fontsize, "annotation-floor");
+
+// Size-List
+$font-size-title: $font-size-title-floor, $font-size-title-ceil;
+$font-size-h1: $font-size-h1-floor, $font-size-h1-ceil;
+$font-size-h2: $font-size-h2-floor, $font-size-h2-ceil;
+$font-size-h3: $font-size-h3-floor, $font-size-h3-ceil;
+$font-size-big: $font-size-big-floor, $font-size-big-ceil;
+$font-size-base: $font-size-base-floor, $font-size-base-ceil;
+$font-size-sm: $font-size-sm-floor, $font-size-sm-ceil;
+$font-size-annotation: $font-size-annotation-floor, $font-size-annotation-ceil;
+
+// Default Font Family
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Lato:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap');
+
+$font-type-base: 'Lato', sans-serif;
+$font-type-title: 'Merriweather', serif;
+$font-type-heading: $font-type-title;
+
+// Font Weight:
+$font-light: 300;
+$font-regular: 400;
+$font-bold: 700;
+$font-black: 900;

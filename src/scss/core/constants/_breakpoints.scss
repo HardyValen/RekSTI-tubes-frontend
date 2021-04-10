@@ -1,0 +1,15 @@
+// Constants: Breakpoints
+
+$baseValue: 10; // Indicates that the baseline is 10px
+$basePercentage: ($baseValue / 16) * 100%;
+
+// Breakpoints on Rem
+$breakpoints: (
+  small: 32rem, // equivalent to 320px
+  medium: 96rem, // equivalent to 800px
+  large: 144rem  // equivalent to 1440px,
+);
+
+$bp-small: map-get($breakpoints, "small");
+$bp-medium: map-get($breakpoints, "medium");
+$bp-large: map-get($breakpoints, "large");

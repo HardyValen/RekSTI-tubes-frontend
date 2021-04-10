@@ -1,0 +1,48 @@
+// Constant: Box-Sizing
+// Scene Constants
+$bs-scene-floor: 3rem;
+$bs-scene-ceil: 5rem;
+
+// Minimal Component Constants
+$bs-component-default: 2rem; // Floor and Ceiling is 2rem.
+$bs-component-default-list: $bs-component-default, $bs-component-default;
+
+// Button Constants
+$bs-button-x-floor: 1.0rem;
+$bs-button-y-floor: 1.0rem;
+$bs-button-x-ceil: 2.25rem;
+$bs-button-y-ceil: 1.5rem;
+
+
+// Margin Differentiation
+$margin-count: 5;
+
+// Padding Differentiation
+$padding-count: 5;
+
+// Box Sizing Variable List
+$bs: (
+  "1": (0.5rem, 0.5rem), 
+  "2": (0.66rem, 0.75rem), 
+  "3": (0.75rem, 1rem), 
+  "4": (1rem, 1.5rem), 
+  "5": (1.5rem, 2rem),
+  "6": (2rem, 3rem),
+  "7": (3.5rem, 5rem),
+  "8": (5rem, 8rem)
+);
+
+@mixin boxsizing-p($value) {@include fluidpadding(nth(map-get($bs, $value), 1), nth(map-get($bs, $value), 2));}
+@mixin boxsizing-m($value) {@include fluidmargin(nth(map-get($bs, $value), 1), nth(map-get($bs, $value), 2));}
+@mixin boxsizing-px($value) {@include fluidpaddingx(nth(map-get($bs, $value), 1), nth(map-get($bs, $value), 2))}
+@mixin boxsizing-py($value) {@include fluidpaddingy(nth(map-get($bs, $value), 1), nth(map-get($bs, $value), 2))}
+@mixin boxsizing-pt($value) {@include fluid("padding-top", nth(map-get($bs, $value), 1), nth(map-get($bs, $value), 2))}
+@mixin boxsizing-pl($value) {@include fluid("padding-left", nth(map-get($bs, $value), 1), nth(map-get($bs, $value), 2))}
+@mixin boxsizing-pb($value) {@include fluid("padding-bottom", nth(map-get($bs, $value), 1), nth(map-get($bs, $value), 2))}
+@mixin boxsizing-pr($value) {@include fluid("padding-right", nth(map-get($bs, $value), 1), nth(map-get($bs, $value), 2))}
+@mixin boxsizing-mx($value) {@include fluidmarginx(nth(map-get($bs, $value), 1), nth(map-get($bs, $value), 2))}
+@mixin boxsizing-my($value) {@include fluidmarginy(nth(map-get($bs, $value), 1), nth(map-get($bs, $value), 2))}
+@mixin boxsizing-mt($value) {@include fluid("margin-top", nth(map-get($bs, $value), 1), nth(map-get($bs, $value), 2))}
+@mixin boxsizing-ml($value) {@include fluid("margin-left", nth(map-get($bs, $value), 1), nth(map-get($bs, $value), 2))}
+@mixin boxsizing-mb($value) {@include fluid("margin-bottom", nth(map-get($bs, $value), 1), nth(map-get($bs, $value), 2))}
+@mixin boxsizing-mr($value) {@include fluid("margin-right", nth(map-get($bs, $value), 1), nth(map-get($bs, $value), 2))}

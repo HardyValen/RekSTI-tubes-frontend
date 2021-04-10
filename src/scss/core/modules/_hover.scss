@@ -1,0 +1,28 @@
+/* Bounce In */
+@mixin bounce-in {
+	@include hacks();
+	transition-duration: .5s;
+
+	&:hover, &:focus, &:active {
+		transform: scale(1.2);
+		transition-timing-function: cubic-bezier(.47,2.02,.31,-0.36);
+	}
+}
+
+@mixin forward {
+	@include hacks();
+	transition: $defaultTransition;
+
+	&:hover, &:focus, &:active {
+		transform: translateX(8px);
+	}
+}
+
+@mixin backward {
+	@include hacks();
+	transition: $defaultTransition;
+
+	&:hover, &:focus, &:active {
+		transform: translateX(-8px);
+	}
+}

@@ -1,0 +1,28 @@
+// Super Minified Bootstrap Grid Global Classes
+
+.row {
+  @include make-row();
+
+  & > * {
+    @include make-col-ready();
+  }
+}
+
+@include make-grid-columns();
+
+// Flex Container Modifier Classes
+$justify-content-map: (start: flex-start, center: center, end: flex-end, between: space-between);
+@each $key, $modifier in $justify-content-map {
+  .justify-content-#{$key} {
+    display: flex;
+    justify-content: $modifier;
+  }
+}
+
+$align-items-map: (start: flex-start, center: center, end: flex-end, stretch: stretch);
+@each $key, $modifier in $align-items-map {
+  .align-items-#{$key} {
+    display: flex;
+    align-items: $modifier;
+  }
+}

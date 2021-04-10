@@ -1,0 +1,14 @@
+// Be Careful, Every element in this class MUST have display:inline-block!
+// Use Carefully!
+
+.bounce-in {
+  @include bounce-in();
+}
+
+.forward {
+  @include forward();
+}
+
+.backward {
+  @include backward();
+}

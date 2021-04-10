@@ -1,0 +1,25 @@
+@each $key, $value in $color {
+  .color.#{$key} {
+    color: $value !important;
+  }
+
+  .color.#{$key}-bg {
+    background-color: $value !important;
+  }
+
+  .color.#{$key}-border {
+    border-color: $value !important;
+  }
+
+  .color.#{$key}-hover:hover {
+    color: $value !important;
+  }
+
+  .color.#{$key}-bg-hover:hover {
+    background-color: $value !important;
+  }
+
+  .color.#{$key}-border-hover:hover {
+    border-color: $value !important;
+  }
+}

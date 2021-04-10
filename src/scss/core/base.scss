@@ -1,0 +1,142 @@
+@import "./bundle";
+
+/* ===================================================================
+ * # A. Custom Normalize
+ * ------------------------------------------------------------------- */
+html,
+body {
+  @include typography();
+  background-color: $color-background-default;
+  font-family: $font-type-base;
+  font-weight: $font-regular;
+  // color: $color-text-base-default;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  max-width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  transition: $defaultTransition;
+  cursor: pointer;
+}
+
+main {
+  display: block;
+  height: 100%;
+}
+
+article,
+aside,
+footer,
+header,
+nav,
+section {
+  display: block;
+}
+
+/* # End of Normalize
+ * ----------------------- */
+
+/* ===================================================================
+ * # B. Typography
+ * ------------------------------------------------------------------- */
+html {
+  font-size: $basePercentage;
+}
+
+body {
+  @include typography($font-size-base);
+  font-family: $font-type-base;
+  font-weight: $font-regular;
+  line-height: 130%;
+}
+
+.font.title {
+  @include typography($font-size-title);
+  font-family: $font-type-base;
+  font-weight: $font-bold;
+  line-height: 100%;
+  // color: $color-title-default;
+}
+
+h1 {
+  @include typography($font-size-h1);
+  @include boxsizing-mb("3");
+  font-family: $font-type-base;
+  font-weight: $font-bold;
+  line-height: 100%;
+  // color: $color-header-default;
+}
+
+h2 {
+  @include typography($font-size-h2);
+  @include boxsizing-mb("2");
+  font-family: $font-type-base;
+  font-weight: $font-bold;
+  line-height: 100%;
+  // color: $color-header-default;
+}
+
+h3 {
+  @include typography($font-size-h3);
+  @include boxsizing-mb("2");
+  font-family: $font-type-base;
+  font-weight: $font-bold;
+  line-height: 100%;
+}
+
+big {
+  @include typography($font-size-big);
+  font-family: $font-type-base;
+  font-weight: $font-regular;
+  line-height: 130%;
+}
+
+p {
+  @include boxsizing-mb("2");
+  @include typography($font-size-base);
+  font-family: $font-type-base;
+  font-weight: $font-regular;
+  line-height: 130%;
+  // color: $color-text-base-default;
+}
+
+small {
+  @include typography($font-size-sm);
+  font-family: $font-type-base;
+  font-weight: $font-regular;
+  line-height: 130%;
+}
+
+.font.annotation {
+  @include typography($font-size-annotation);
+  font-family: $font-type-base;
+  font-weight: $font-regular;
+  line-height: 130%;
+  // color: $color-text-base-default;
+}
+
+/* # End of Typography
+ * ----------------------- */
