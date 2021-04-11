@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const FetchFunctions = {}
-const backendURL = "http://localhost:9000";
+const backendURL = "http://localhost:9000/data";
 
 FetchFunctions.all = function ({sensor_node}) {
   return axios.get(backendURL + `?sensor_node=${sensor_node}`)
