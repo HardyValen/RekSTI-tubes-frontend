@@ -3,12 +3,12 @@ import Highcharts from "highcharts";
 import { useEffect, useState } from "react";
 import moment from "moment";
 
-function SoilCondition({rawData}) {
+function VisualizationCard({rawData = null, metrics, title = "Parameter Ukur", unit = "Satuan", statistics = {min: null, max: null}}) {
   const [series, setSeries] = useState(null);
 
   useEffect(() => {
     let seriesTemp = rawData?.objSeries?.map((entry) => {
-      return [moment(entry.created_at).valueOf(), entry.kelembaban_tanah]
+      return [moment(entry.created_at).valueOf(), entry[metrics]]
     })
 
     setSeries(seriesTemp)
@@ -17,9 +17,10 @@ function SoilCondition({rawData}) {
   }, [rawData])
 
   return (
+    !rawData ? null :
     <div className="row mt-8">
       <div className="col-12">
-        <h1>Kondisi Tanah</h1>
+        <h1>{title}</h1>
       </div>
       <div className="row align-items-center">
         <div className="col-12 col-md-6 p-2">
@@ -28,7 +29,7 @@ function SoilCondition({rawData}) {
             options={
               {
                 title: {
-                  text: "Grafik Kondisi Tanah",
+                  text: `Grafik ${title}`,
                 },
                 subtitle: {
                   text: "Sensor_1",
@@ -41,10 +42,10 @@ function SoilCondition({rawData}) {
                 },
                 yAxis: {
                   title: {
-                    text: "Kelembapan Tanah (%)"
+                    text: `{${title}} (${unit})`
                   },
-                  min: 0,
-                  max: 100,
+                  min: statistics.min,
+                  max: statistics.max,
                 },
                 tooltip: {
                   formatter: function () {
@@ -63,17 +64,17 @@ function SoilCondition({rawData}) {
                     //     [new Date("2021-04-13T11:52:55.458Z"), 50]
                     // ],
                     data: series,
-                    name: "Kelembaban Tanah."
+                    name: `${title}`
                 }]
               }
             }
           />
         </div>
         <div className="col-12 col-md-6 p-2 statistics-card">
-          <h3>Statistik Kelembaban Tanah:</h3>
+          <h3>Statistik {title}:</h3>
           <table className="my-4" style={{width: "10s0%"}}>
             {
-              Object.entries(rawData.statistics.kelembaban_tanah).map((data, index) => {
+              Object.entries(rawData?.statistics?.[metrics]).map((data, index) => {
                 return (
                   <tr key={index}>
                     <td>{data[0]}</td>
@@ -85,8 +86,8 @@ function SoilCondition({rawData}) {
           </table>
         </div>
       </div>
-    </div>
+    </div> 
   )
 }
 
-export default SoilCondition;
+export default VisualizationCard;

@@ -121,14 +121,15 @@ p {
   font-weight: $font-regular;
   line-height: 130%;
   // color: $color-text-base-default;
+  
+  small {
+    @include typography($font-size-sm);
+    font-family: $font-type-base;
+    font-weight: $font-regular;
+    line-height: 130%;
+  }
 }
 
-small {
-  @include typography($font-size-sm);
-  font-family: $font-type-base;
-  font-weight: $font-regular;
-  line-height: 130%;
-}
 
 .font.annotation {
   @include typography($font-size-annotation);
